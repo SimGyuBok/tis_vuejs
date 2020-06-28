@@ -50,4 +50,35 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    var data = {
+        message: "Hello, Vue.js"
+    }
+    // edtmc^2w
+var v1 = new Vue({
+    el: "#app",
+    data:window.data
+})
+
+var v2 = new Vue({
+    el: "#app2",
+    data:window.data,
+    template: "",
+    methods: {
+
+    },
+    computed: {
+        
+    },
+    components: {   
+    
+    },
+    watch: {},
+    /* 라이프사이클 8개 중에 2개 */
+
+})
+
+</script>
+
 </html>

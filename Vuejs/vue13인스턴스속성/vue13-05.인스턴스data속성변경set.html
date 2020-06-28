@@ -70,4 +70,50 @@
     </div>
 </body>
 
-</html>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //var arr = [1,2,3,4,5];
+    // edtmc^2w
+
+    var vm = new Vue({
+        el: "#app",
+        data:{
+            arr: [1,2,3,4,5]
+        },
+        template: "",
+        methods: {
+            change1 : function(e) {
+                debugger;
+                this.$data.arr[0] = 100;
+                Vue.set(this.$data.arr, 0, 100);
+                console.log(this.$data.arr);
+            },
+            change2 : function(e) {
+                debugger;
+                this.$set(this.$data.arr, 1, 300);
+                console.log(this.$data.arr);
+            },
+            change3 : function(e) {
+                this.arr.splice(0, 2, 500);
+                console.log(this.$data.arr);
+            },
+            change4 : function(e) {
+                var arr_copy=[...this.arr,70];
+                this.$data.arr = arr_copy;
+                console.log(this.$data.arr);
+            }
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {},
+        /* 라이프사이클 8개 중에 2개 */
+
+    })
+
+</script>
+
+</html>

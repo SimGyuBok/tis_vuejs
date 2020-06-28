@@ -36,4 +36,43 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //var arr = [1,2,3,4,5];
+    // edtmc^2w
+
+    var vm = new Vue({
+        el: "#my",
+        data:{
+            message: "aaa"
+        },
+        template: "",
+        methods: {
+            doClick : function(e) {
+                debugger;
+                this.$data.message = "change message when a button clicked!!!";
+            }
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {},
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            this.$data.message = "change message at mounted!!!";
+        }
+    });
+
+    window.setTimeout(function (params) {
+        vm.$data.message = "change message after 3 seconds!!!";
+    }, 3000);
+
+    window.setTimeout(function (params) {
+        vm.$data.message = "change message after 5 seconds!!!";
+    }, 5000);
+</script>
+
 </html>

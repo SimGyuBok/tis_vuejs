@@ -20,12 +20,13 @@ import Footer from "./Footer.vue";
 export default {
   data() {
     return {
-      msg: "Hello VueJS"
-    };
+      msg: "Hello, Vue.js"
+    }
   },
-  components: {
-    "header-comp": Header,
-    "footer-comp": Footer
+  components : {
+    "header-comp" : Header,
+    "footer-comp" : Footer
   }
-};
+
+}
 </script>

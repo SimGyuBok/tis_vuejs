@@ -61,4 +61,57 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //var arr = [1,2,3,4,5];
+    // edtmc^2w
+
+    var vm = new Vue({
+        el: "#app",
+        data:{
+            message : "",
+            methodscopy : "",
+            watchcopy : "",
+            computedcopy : "" 
+        },
+        template: "",
+        methods: {
+            reverseMsg : function(e) {
+                //debugger;
+                var inputStr = this.message;
+                this.methodscopy = inputStr.split('').reverse().join('');
+                //console.log(e.target.value);
+            }
+        },
+        computed: {
+            methodscopy : function(e) {
+                //debugger;
+               
+                return this.computedcopy = this.methodscopy
+                //console.log(e.target.value);
+            }
+        },
+        components: {   
+        
+        },
+        watch: {
+            methodscopy : function(e) {
+                //debugger;
+               
+                this.watchcopy = this.methodscopy
+                //console.log(e.target.value);
+            }
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        }
+    });
+
+    //$("#target").keyup(function() { alert("Handler for .keyup() called."); });
+
+
+    
+</script>
+
 </html>

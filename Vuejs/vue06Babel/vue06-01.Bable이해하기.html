@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Sample</title>
-
-    
+    <title>Vue Sample</title>   
 </head>
 <body>
     <pre>
@@ -23,4 +21,22 @@
 </body>
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+
 <!-- Your custom script here -->
+<script type="text/javascript"> // ES5
+
+</script>
+
+<script type="text/babel">
+    //            ES6                       => ES5 변환
+    // 변수 선언: let, const                => var
+    //            블락 스코핑                  함수 스코핑
+    // 함수 선언: function(){}, ()=>{ }        function() {}
+
+    const getMessage = () => {
+        return "hello, ES6!!!!!";
+    }
+
+    document.getElementById("output").innerText =  getMessage();
+</script>
