@@ -12,8 +12,9 @@
     <!-- CSS import -->
     <link rel="stylesheet" href="../css/reset.css">
     <style lang="">
-        ul {
-            list-style-type: disc;
+        ul li {
+            list-style-type: none;
+            display:inline-block;
         }
 
         span {
@@ -61,6 +62,7 @@
         <p>
             <span v-for="(val, i) in arr" v-bind:key="i">{{val}}</span>
         </p>
+        <button v-on:click="clickBind">선택</button>
     </div>
     <hr>
 
@@ -69,7 +71,7 @@
         <div>
             <h2>Object Arrary rendered with v-for:</h2>
             <select name="" id="">
-                <option v-for="option in options">
+                <option v-for="option in options" v-bind:key="option.text">
                     {{ option.text }} : {{ option.value}}
                 </option>
             </select>
@@ -77,5 +79,71 @@
     </div>
 
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //var arr = [1,2,3,4,5];
+    // edtmc^2w
+    var vm = new Vue({
+        el: "#app",
+        data:{
+            arr : [1,2,3,4,5]
+        },
+        template: null,
+        methods: {
+            
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+
+    var vm = new Vue({
+        el: "#app1",
+        data:{
+            options :  [
+            { text: 'One', value: 'A' },
+            { text: 'Two', value: 'B' },
+            { text: 'Three', value: 'C' }
+            ]
+        },
+        template: null,
+        methods: {
+            clickBind: function(e) {
+                
+            }
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+
+</script>
 
 </html>

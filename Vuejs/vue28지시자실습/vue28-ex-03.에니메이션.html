@@ -36,6 +36,81 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    var msg = {
+        
+    }
+    // edtmc^2w
+    var timerId = "";
+    var app = new Vue({
+        el: "#app",
+        data:{        
+            img_run: ["../images/00.png" , "../images/01.png", "../images/02.png", "../images/03.png", "../images/04.png",
+                "../images/05.png", "../images/06.png", "../images/07.png", "../images/08.png", "../images/09.png", "../images/10.png", "../images/11.png", "../images/12.png", "../images/13.png", "../images/14.png"],
+            //img_swap: ["../images/img_swap_off.png" , "../images/img_swap_on.png"],
+            //img_select: ""
+            movieimageSrc: "../images/00.png",
+            curIndex : 0
+        },
+        template: null,
+        methods: {
+            clickPrev: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                if (this.curIndex++ === 0) {
+                    this.curIndex = 14;
+                }
+                this.movieimageSrc = this.img_run[this.curIndex];
+                //this.num++;
+                //this.flag = false;
+            },
+            clickNext: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                if (this.curIndex++ === 14) {
+                    this.curIndex = 0;
+                }
+                this.movieimageSrc = this.img_run[this.curIndex];
+                //this.num++;
+                //this.flag = false;
+            }, 
+            clickStart: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                //this.num++;
+                //this.flag = false;
+                startAnimation();
+            },
+            clickStop: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                stopAnimation();
+                //this.num++;
+                //this.flag = false;
+            }
+        }
+       
+    }); 
+   
+    function startAnimation() {
+        timerId = setInterval(function() {
+            if (app.curIndex++ === 14) {
+                app.curIndex = 0;
+            } 
+             app.movieimageSrc = app.img_run[app.curIndex];
+        }, 75); 
+    }
+
+    function stopAnimation() {
+       clearInterval(timerId);
+    }
+</script>
+
 </html>
 
-
+

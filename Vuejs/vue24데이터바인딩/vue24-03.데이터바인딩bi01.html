@@ -51,7 +51,7 @@
                 v-text 를 사용 권장.
                 xss 공격에 취약.
 
-        문제. 데이터 바인딩 3가지 방법을 학습한다.
+        데이터 바인딩 3가지 방법을 학습한다.
            1. 콧수염 표현식 데이터 바인딩
            2. v-html 데이터 바인딩
            3. v-text 데이터 바인딩
@@ -110,6 +110,71 @@
         </div>
     </div>
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    var msg = {
+        message : "<i>첫번째 Vue.js 앱 입니다!<i>"
+    }
+    // edtmc^2w
+
+    var my = new Vue({
+        el: "#my",
+        data:{
+            message : msg
+        },
+        template: null,
+        methods: {
+            
+        },
+       
+    });
+
+    var vm1 = new Vue({
+        el: "#simple1",
+        data:{
+            message : "<i>첫번째 Vue.js 앱 입니다!<i>"
+        },
+        template: null,
+        methods: {
+            
+        },
+       
+    });
+
+    var vm2 = new Vue({
+        el: "#simple2",
+        data:{
+            message : "<i>첫번째 Vue.js 앱 입니다!<i>"
+        },
+        template: null,
+        methods: {
+            
+        },
+       
+    });
+
+    var vm3 = new Vue({
+        el: "#simple3",
+        data:{
+            message : "<i>첫번째 Vue.js 앱 입니다!<i>"
+        },
+        template: null,
+        methods: {
+            
+        },
+    });
+
+    var vm4 = new Vue({
+        el: "#simple4",
+        data: msg,
+        template: null,
+        methods: {
+            
+        },  
+    });
+</script>
+
 </html>
 
-
+

@@ -88,4 +88,136 @@
         </span>
     </div>
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //var arr = [1,2,3,4,5];
+    // edtmc^2w
+    var vm1 = new Vue({
+        el: "#app1",
+        data:{
+            awesome : true
+        },
+        template: null,
+        methods: {
+            
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+
+    var vm2 = new Vue({
+        el: "#app2",
+        data:{
+            awesome : false
+        },
+        template: null,
+        methods: {
+            
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+
+    var vm3 = new Vue({
+        el: "#app3",
+        data:{
+            awesome : true
+        },
+        template: null,
+        methods: {
+            clickBind: function(e) {
+            /*    
+                if (this.awesome === true) {
+                    this.awesome = false;
+                } else {
+                    this.awesome = true;
+                }
+            */    
+                this.awesome = !this.awesome;
+            }
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+
+    var vm5 = new Vue({
+        el: "#app5",
+        data:{
+            type : 1
+        },
+        template: null,
+        methods: {
+            clickBind: function(e) {
+            /*
+                if (++this.type > 4) {
+                    this.type = 1
+                }
+            */
+                //++this.type > 4 ? this.type = 1 : true;
+                this.type = ++this.type % 4;
+                //if (this.type % 4)           
+            }
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+</script>
+
 </html>

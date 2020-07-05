@@ -83,7 +83,7 @@
 이미지 위에 마우스를 올리면(mouseover) ==> ../images/but2.gif , ../images/img_swap_on.png
 이미지 위에 마우스를 내리면(mouseout ) ==> ../images/but1.gif , ../images/img_swap_off.png
         </pre>
-        <img v-bind:src="img_but1[0]" id="but1"     v-on:mouseover="imageover" v-on:mouseout="imageout" />
+        <img v-bind:src="img_but1[0]" id="but1" v-on:mouseover="imageover" v-on:mouseout="imageout" />
         <img v-bind:src="img_swap[0]" id="img-swap" v-on:mouseover="imageover" v-on:mouseout="imageout" />
         <hr>
 
@@ -117,7 +117,79 @@ select 에 change 이벤트 핸들러를 작성하시오.
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    var msg = {
+        
+    }
+    // edtmc^2w
+
+    var app = new Vue({
+        el: "#app",
+        data:{
+            img_image3: "",
+            img_but1: ["../images/but1.gif" , "../images/but2.gif"],
+            img_swap: ["../images/img_swap_off.png" , "../images/img_swap_on.png"],
+            img_select: ""
+        },
+        template: null,
+        methods: {
+            imageclick: function(e) {
+                //e.stopPropagation();
+                e.preventDefault();
+                console.log(e);
+                this.img_image3 = e.target.href;
+                //this.num++;
+                //this.flag = false;
+            },
+            imageover: function(e) {
+                console.log(e.target.id);
+                console.log(e.target.src);
+                //console.log(e.target.src.indexOf());
+                //e.target.src = e.target.src[1];
+            
+                var id = e.target.id;
+                if (id === "but1") {
+                    e.target.src = this.img_but1[1];
+                } else {
+                    e.target.src = this.img_swap[1];
+                }
+            
+                //$("#but1").a
+                //var id = e.target.id;
+                //e.target.src = this.img_but1[1];
+            },
+            imageout: function(e) {
+                var id = e.target.id;
+                if (id === "but1") {
+                    e.target.src = this.img_but1[0];
+                } else {
+                    e.target.src = this.img_swap[0];
+                }
+            },
+            spanmouseover: function(e) {
+                console.log(e);
+                e.target.style.background = "yellow";
+            },
+            spanmousedown: function(e) {
+                e.target.style.background = "blue";
+            },
+            spanmouseup: function(e) {
+                e.target.style.background = "pink";
+            },
+            spanmouseout: function(e) {
+                e.target.style.background = "red";
+            },
+            selectchange: function(e) {
+                this.img_select = e.target.options[e.target.selectedIndex].value;
+            }
+        }
+       
+    }); 
+   
+</script>
+
 </html>
 
 
-
+

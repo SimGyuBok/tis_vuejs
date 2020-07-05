@@ -77,11 +77,46 @@
         <button v-on:click="btn6_onclick('whsize', false)">whsize class 속성 제거</button>
         <br>
         <button v-on:click="btn6_onclick('csbord', true )">csbord class 속성 추가</button>
-        <button v-on:click="btn6_onclick('csbord', false)">csbord class 속성 추가</button>
+        <button v-on:click="btn6_onclick('csbord', false)">csbord class 속성 제거</button>
         <br>
         <button v-on:click="btn5_onclick(true )">csbord 와 whsize class 속성 추가</button>
         <button v-on:click="btn5_onclick(false)">csbord 와 whsize class 속성 제거</button>
     </div>
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    var msg = {
+        
+    }
+    // edtmc^2w
+    var timerId = "";
+    var app3 = new Vue({
+        el: "#app3",
+        data:{        
+            css1: {
+                csbord: true,
+                whsize: true
+            }
+        },
+        template: null,
+        methods: {
+            btn5_onclick: function(val) {
+                //console.log(key, val);
+                //this.css1.get(key).set(val);
+                for (var prop in this.css1) {
+                    this.css1[prop] = val;
+                }
+            },
+            btn6_onclick: function(key, val) {
+                console.log(key+", "+val);
+                this.css1[key] = val;
+            }
+            
+        }
+       
+    }); 
+   
+</script>
 
 </html>

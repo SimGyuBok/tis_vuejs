@@ -29,7 +29,51 @@
     <hr>
 
     <div id="app">
-        {{ message }}
+        <div>
+            {{ message }}
+        </div>
+        <button v-on:click="setMyName">입력</button>
     </div>
+    
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            message : "Hello, Vue.js",
+            clickCnt : 0
+        },
+        template: "",
+        methods: {
+            setMyName:function(e) {
+                //debugger;
+                this.message = "심규복"+ (++this.clickCnt); 
+            }
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        beforeCreate : function() { console.log("beforeCreate ")},
+        created      : function() { console.log("created      ")},
+        beforeMount  : function() { console.log("beforeMount  ")},
+        mounted      : function() { console.log("mounted      ")},
+        beforeUpdate : function() { console.log("beforeUpdate ")},
+        updated      : function() { console.log("updated      ")},
+        beforeDestroy: function() { console.log("beforeDestroy")},
+        destroyed    : function() { console.log("destroyed    ")}
+
+
+    })
+
+</script>
+
 </html>

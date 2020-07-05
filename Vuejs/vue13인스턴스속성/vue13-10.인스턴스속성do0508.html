@@ -69,36 +69,35 @@
     var vm = new Vue({
         el: "#app",
         data:{
-            message : "",
+            message : "Hello, Vue.js",
             methodscopy : "",
-            watchcopy : "",
-            computedcopy : "" 
+            watchcopy : ""
         },
         template: "",
         methods: {
             reverseMsg : function(e) {
                 //debugger;
                 var inputStr = this.message;
+                var reverseStr = inputStr.split('').reverse().join('');
                 this.methodscopy = inputStr.split('').reverse().join('');
+                //this.computedcopy = inputStr.split('').reverse().join('');
                 //console.log(e.target.value);
+                //this.$set(this.$data, 'methodscopy', reverseStr);
             }
         },
         computed: {
-            methodscopy : function(e) {
-                //debugger;
-               
-                return this.computedcopy = this.methodscopy
-                //console.log(e.target.value);
+            computedcopy: function() {
+                return this.watchcopy;
             }
         },
         components: {   
         
         },
         watch: {
-            methodscopy : function(e) {
+            methodscopy : function(val) {
                 //debugger;
                
-                this.watchcopy = this.methodscopy
+                this.watchcopy = val;
                 //console.log(e.target.value);
             }
         },

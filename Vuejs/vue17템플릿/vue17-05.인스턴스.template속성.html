@@ -56,4 +56,41 @@
     </div>
 
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    //var arr = [1,2,3,4,5];
+    // edtmc^2w
+    var vm2 = new Vue({
+        el: "#app2",
+        data:{
+            message1 : "message1"
+        },
+        template: `<div id="app2">
+                        <h2>{{message1}}</h2>
+                        <div style="border-bottom: 1px solid black;">첫번째 엘리먼트</div>
+                        <div style="border-bottom: 1px solid black;">두번째 엘리먼트</div>
+                    </div>`,
+        methods: {
+            
+        },
+        computed: {
+            
+        },
+        components: {   
+        
+        },
+        watch: {
+            
+        },
+        /* 라이프사이클 8개 중에 2개 */
+        mounted : function() {
+            //this.$data.message = "change message at mounted!!!";
+        },
+        updated: function() {
+            
+        }
+    });
+</script>
+
 </html>
