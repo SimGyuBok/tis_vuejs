@@ -54,4 +54,27 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el: "#example",
+        data: {
+            score: null
+        },
+        computed: {
+            info : function() {
+                // input tag의 value 값은 문자열이다.
+                // 비교연산자가 문자열을 숫자로 자동으로 형변환
+                // var val = Number(this.score);
+                if (this.score >= 1 && this.score <= 100)
+                    return ""
+                else
+                    //var con = { warning:true }
+                    return { warning:true }
+            }
+        }
+    })
+
+</script>
+
 </html>

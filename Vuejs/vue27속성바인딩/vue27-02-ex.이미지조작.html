@@ -17,15 +17,66 @@
     <h2>&lt;img id="" src="" title="" alt="" /&gt;</h2>
 
     <h3>어트리뷰트 추가</h3>
-    <img id="img1" src="../images/im1.jpg" title="im1.jpg" alt="im1.jpg" />
-    <img id="img2" />
-    <img id="img3" />
-    <img id="img4" />
-    <img id="img5" title="im5.jpg" />
+    <div id="div1">      
+        <img id="img1" src="../images/im1.jpg" title="im1.jpg" alt="im1.jpg" />
+        <img id="img2" v-bind:src="imgSrc2" v-on:click="clickImg2()"/>
+        <img id="img3" v-on:click="clickImg('3', this)" />
+        <img id="img4" v-on:click="clickImg('4', this)" />
+        <img id="img5" title="im5.jpg" />
 
-    <h3>어트리뷰트 제거</h3>
-    <img id="img6" src="../images/im5.jpg" title="im5" alt="im5.jpg" />
+        <h3>어트리뷰트 제거</h3>
+        <img id="img6" src="../images/im5.jpg" title="im5" alt="im5.jpg" />
+    </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+/*    
+    new Vue({
+        el:"#img2"
+        , data: {
+            imgSrc2: null
+        }
+        , methods: {
+            clickImg2: function(e) {
+                this.imgSrc2 =  "../images/im2.jpg";
+            }
+        }
+    })
+*/    
+    new Vue({
+        el:"#div1"
+        , data: {
+            imgSrc2: null
+            , imgSrc3: "../images/im3.jpg"
+            , imgsrc: {
+                null: "",
+                im1: { src: "../images/im1.jpg", onoff:false },
+                im2: { src: "../images/im2.jpg", onoff:false },
+                im3: { src: "../images/im3.jpg", onoff:false },
+                im4: { src: "../images/im4.jpg", onoff:false },
+                im5: { src: "../images/im5.jpg", onoff:false },
+            } 
+        }
+        , methods: {
+            clickImg: function(imgNum, obj) {
+                event.target.src = "../images/im"+imgNum+".jpg"
+                console.log(event.target);
+                //debugger;
+                console.log(arguments);
+                console.log(obj);
+                
+                //this.imgSrc2 =  "../images/im2.jpg";
+                obj.src = "../images/im"+imgNum+".jpg";
+            }
+        }
+    })
+
+    
+</script>
+
+
 </html>
 
-<!-- 임포트 -->
+<!-- 임포트 -->

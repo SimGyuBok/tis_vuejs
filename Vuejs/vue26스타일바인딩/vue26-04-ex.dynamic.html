@@ -39,5 +39,47 @@
         {{msg}}
     </div>
 </body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            state: "ready",
+        },
+        methods: {
+            change: function(event) {
+            /*
+                if (this.state.ready) {
+                    this.state.ready = false;
+                    this.state.active = true;
+                    this.msg = "active";
+                } else if (this.state.active) {
+                    this.state.active = false;
+                    this.state.done = true;
+                    this.msg = "done";
+                } else if (this.state.done) {
+                    this.state.done = false;
+                    this.state.ready = true;
+                    this.msg = "ready";
+                } 
+            */
+                if (this.state === "ready") {
+                    this.state = "active"
+                } else if (this.state === "active") {
+                    this.state = "done"
+                } else if (this.state === "done") {
+                    this.state = "ready"
+                }
+            }
+        }, 
+        computed: {
+            msg : function() {
+                return this.state;
+            }
+        }
+    })
+</script>
+
 </html>
-
+

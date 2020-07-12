@@ -60,6 +60,37 @@
         </p>
     </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            ptags: [],
+            stags: [],
+            rhtml : null
+        },
+        methods: {
+            clickPtag: function() {
+                Vue.set(this.$data.ptags, this.$data.ptags.length, this.$data.ptags.length+" p paragraph!!!");
+            },
+            clickStag: function() {
+                Vue.set(this.$data.stags, this.$data.stags.length, this.$data.stags.length+" span paragraph!!!");
+            },
+            clickDynamic: function() {
+                console.log(event, event.target);
+                // event.target.tagName 는 대문자.
+                if (event.target.tagName === "P") {
+                    this.$data.rhtml = event.target.innerHTML;
+                }
+            }
+        }
+
+    })
+</script>
+
 </html>
 
-
+

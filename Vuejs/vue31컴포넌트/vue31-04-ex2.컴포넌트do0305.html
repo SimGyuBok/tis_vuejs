@@ -17,9 +17,11 @@
 </head>
 <body>
     <xmp>
-Vue 컴포넌트 만드는 방법을 배운다.
+        Vue 컴포넌트 만드는 방법을 배운다.
 
-Vue의 전역 컴포넌트와 지역 컴포넌트 만드는 방법을 배운다.
+        Vue의 my-global-component 와 my-local-component를 전역 컴포넌트로 만드시오
+        my-global-component의 template: <div>g 컴포넌트</div>
+        my-local-component의 template: <div>l 컴포넌트</div>
 
         [참조]page 57
     </xmp>
@@ -35,4 +37,53 @@ Vue의 전역 컴포넌트와 지역 컴포넌트 만드는 방법을 배운다.
     </div>
 
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+
+<script>
+    // 전역 컴포넌트 만들기
+    Vue.component("my-global-component", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "my-global-component",
+        props: {
+            propsdata: null,
+        }, 
+        data : function() {
+            return {
+
+            };
+        },
+        template: `
+            <div>g 컴포넌트</div>
+        `
+    });
+    Vue.component("my-local-component", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "my-local-component",
+        props: {
+            propsdata: null,
+        }, 
+        data : function() {
+            return {
+
+            };
+        },
+        template: `
+            <div>l 컴포넌트</div>
+        `
+    });
+    new Vue({
+        el: "#app"
+    })
+</script>
+
 </html>

@@ -42,7 +42,7 @@
       0 &lt;= 잔고 &lt; 200000 ==> 등급: Basic
       200000 &lt;= 잔고 &lt; 500000 ==> 등급: Bronze
       500000 &lt;= 잔고 &lt; 100000 ==> 등급: Silver
-      100000 &lt;= 잔고 ==> 등급: Gold
+      1000000 &lt;= 잔고 ==> 등급: Gold
     </pre>
 
     <div id="account">
@@ -57,5 +57,18 @@
     <hr>
 
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+
+<script>
+    new Vue({
+        el: "#account",
+        data: {
+            balance: null
+        }
+    })
+
+</script>
 </html>
-
+

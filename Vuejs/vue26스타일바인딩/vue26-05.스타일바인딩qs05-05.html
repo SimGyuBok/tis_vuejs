@@ -100,4 +100,35 @@
     </div>
 </body>
 
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el: "#example2",
+        data: {
+            myColor: {
+                backgroundColor:"aqua",
+                color:"purple"
+            },
+            myLayout: {
+                width:"150px", 
+                height:"80px",
+                textAlign:"center"
+            }
+        }
+    });
+
+    new Vue({
+        el: "#example3",
+        data: {
+            mystyle: {
+                set1: false,
+                set2: false,
+                set3: false
+            }
+
+        }
+    })
+
+</script>
+
 </html>
