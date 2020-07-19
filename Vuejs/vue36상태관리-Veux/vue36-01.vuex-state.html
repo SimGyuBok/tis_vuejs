@@ -59,4 +59,73 @@
     </div>
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+
+<script>
+    // Store(Vuex 인스턴스) 만들기
+    var store = new Vuex.Store({
+        actions: {
+            // 비동기 처리, 메소드 인자는 모두 동일
+            increment: function(mutations, playload) {
+                window.setTimeout(function() {
+                    mutations.commit("increment", playload);
+                }, 1000)
+            },
+            decrement: function(mutations, playload) {
+                window.setTimeout(function() {
+                    mutations.commit("decrement", playload);
+                }, 1000)
+            }
+        },
+        mutations: {
+            // 동기 처리
+            increment: function(state, playload) {
+                state.counter = state.counter + playload; // playload는 값이다
+            },
+            decrement: function(state, playload) {
+                
+            }
+        },
+        state: {
+            // Vue 인스턴스의 data 프로퍼티
+            counter: 0,
+            welcome: "Hello, Vue"
+        },
+        getters: {
+            // state를 컴포넌트와 연결
+            welcome: function(state) {
+                return state.welcome;
+            },
+            counter: function(state) {
+                return state.counter;
+            }
+        }
+    })
+
+    // Vue 인스턴스 만들기
+    new Vue({
+        el: "#app",
+        data: {
+            header: null,
+        }, 
+        methods: {
+            increment: function(event) {
+                // 버튼을 누르면 store의 action 호출
+                // dispatch("액션명", "호출값")
+                store.dispatch("increment", 10)
+            }
+        },
+        computed: {
+            welcome: function() {
+                return store.getters.welcome;
+            },
+            counter: function() {
+                return store.getters.counter;
+            }
+        }
+    })
+</script>
+
 </html>

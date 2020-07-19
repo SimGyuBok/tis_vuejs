@@ -55,10 +55,10 @@
                 <td>{{man.name}}</td>
                 <td>{{man.power}}</td>
                 <td>
-                    <button v-on:click="doDel(index)">Del</button>
-                    <button v-on:click="doUp(index)">Power Up</button>
-                    <button v-on:click="doDown(index)">Power Down</button>
-                    <button v-on:click="doEdit(index)">Edit</button>
+                    <button v-on:click="doDel(man.id, index)">Del</button>
+                    <button v-on:click="doUp(man.id, index)">Power Up</button>
+                    <button v-on:click="doDown(man.id, index)">Power Down</button>
+                    <button v-on:click="doEdit(man.id, index)">Edit</button>
                 </td>
             </tr>
         </table>
@@ -72,7 +72,7 @@
     new Vue({
         el: "#app",
         data: {
-            user: { name:"", power:0 },
+            user: { id:null, name:"", power:0 },
             list: [
                 {id: 1, name:"슈퍼맨", power: 100},
                 {id: 2, name:"아쿠아맨", power: 300},
@@ -83,12 +83,60 @@
         methods: {
             insert: function() {
                 var user = this.$data.user;
-                user.id = this.$data.list.length+1;
+                // insert
                 //user.id = this.$data.list.length;
+                // prev = {id: 2, name:"", power: 200}
+                // next = {id: 1, name:"", power: 300}
+
+                // max(id) 를 찾는 방법 => reduce() 메서드 사용.
+                //var obj = array.reduce(function(prev, next) {
+                //    return prev.id > next.id ? prev : next; // 최대값 id가 있는 객체 구하기
+                    //return prev.id < next.id ? prev : next; // 최소값 id가 있는 객체 구하기
+                //});
+                
+                // this.$data.list 이 empty 인 경우도 처리해줘야 함
+
+                var obj = this.$data.list.reduce(function(prev, next) {
+                    return prev.id > next.id ? prev : next; // 최대값 id가 있는 객체 구하기
+                    
+                });
+
+                if (obj) {
+                    //user.id = this.$data.list.length+1;
+                user.id = obj.id+1;
+                } else {
+                    user.id = 1;
+                }
+                
                 // 1. Vue.set()
                 // 2. Array.concat()
                 // 3. spread 연산자
-                Vue.set(this.$data.list, this.$data.list.length, user);
+                Vue.set(this.$data.list, this.$data.list.length, user);             
+            },
+            doUp: function(manId, index) {
+                console.log(manId);
+                //debugger;
+                var users = this.$data.list.filter(function(el) {
+                    return el.id == this ? el : null; // this == manId
+                }, manId);
+                console.log(users);
+                var user = users[0];
+                user.power = Number(user.power) + 100;
+                Vue.set(this.$data.list, index, user);
+            },
+            doDown: function(manId, index) {
+                var users = this.$data.list.filter(function(el) {
+                    return el.id == this ? el : null; // this == manId
+                }, manId);
+                var user = users[0];
+                user.power = Number(user.power) - 50;
+                Vue.set(this.$data.list, index, user);
+            },
+            doEdit: function(manId, index) {
+                this.$data.user = this.$data.list[index]; 
+            },
+            doDel: function(manId, index) {
+                this.$data.list.splice(index, 1) // index 부터 1개 삭제
             }
         }
     })

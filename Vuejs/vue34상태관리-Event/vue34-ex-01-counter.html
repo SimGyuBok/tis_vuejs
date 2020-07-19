@@ -73,4 +73,48 @@
     </div>
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    Vue.component("component-child", {
+        props: ["num"],
+        data: function() {
+            return {}
+        },
+        template: `
+            <div class="component-child">
+                <div>
+                    Child counter : {{num}}
+                </div>
+                <button v-on:click="addCount">+</button>
+                <button v-on:click="subCount">-</button>
+            </div>
+        `,
+        methods: {
+            addCount: function(event) {
+                this.$emit("add-counter", "event1", "1");
+            },
+            subCount: function(event) {
+                this.$emit("sub-counter", "event1", "1");
+            }
+        }
+    })
+
+    new Vue({
+        el:"#app",
+        data: {
+          counter: 0
+        },
+        methods: {
+            addCounter: function(param) {
+              debugger;
+              this.counter = this.counter + Number(param);
+            },
+            subCounter: function(param) {
+              this.counter = this.counter - Number(param);
+            }
+        }
+    })
+</script>
+
 </html>
