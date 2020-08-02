@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="../css/reset.css" />
+    </head>
+
+    <body>
+        <xmp
+>
+        JSX 에서 반복문을 사용하는 방법을 배운다.
+
+        참고: https://flaviocopes.com/react-how-to-loop/
+    </xmp
+        >
+        <hr />
+
+        <div id="wrap1"></div>
+    </body>
+</html>
+<!-- react 플러그인 include   -->
+<!-- 주의: 사이트를 배포할 때는 "development.js"를 "production.min.js"로 대체하세요. -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.development.js"
+>
+    /* import { React} from 'react'; */
+</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.development.js"
+>
+    /* import { ReactDOM } from 'react-dom'; */
+</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"
+>
+    /* JSX를 자바스크립트로 변환 */
+</script>
+
+<script type="text/babel">
+    const todoList = [
+        { taskName: "빨래하기", finished: false },
+        { taskName: "공부하기", finished: true },
+        { taskName: "게임하기", finished: true },
+        { taskName: "청소하기", finished: false },
+    ];
+
+    class Loop1 extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {};
+        }
+
+        render() {
+            //const items = this.props.items;
+            return (
+                <div>
+                    <div>finish 한 것만 출력 ↓</div>
+                    <hr />
+                    <ul>
+                        {todoList.map(function (value, key) {
+                            if (value.finished) {
+                                return <li key={key}>{value.taskName}</li>;
+                            }
+                        })}
+                    </ul>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(<Loop1></Loop1>, document.getElementById("wrap1"));
+</script>
