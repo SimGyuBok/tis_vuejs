@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Template - Directives</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <style lang="">
+        ul li {
+            list-style-type: none;
+            display:inline-block;
+        }
+
+        span {
+            font-size: 3em;
+            border: 1px dashed blue;
+            padding: 10px 20px;
+            margin: 5px;
+            text-align:center;
+        }
+    </style>
+
+    <!-- vue 스크립트 플러그인 임포트   -->
+    
+
+</head>
+
+<body>
+    
+
+</body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    
+    var options = [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' },
+        { text: 'Four', value: 'D' }
+    ];
+
+    for (option of options) {
+        //var option = options[i];
+        console.log("text: "+option.text + ", value: "+option.value);
+    }
+
+    // map 함수를 사용하여 프로퍼티 추가
+    var newopt = options.map(function (el, index) {
+        var obj = el;
+        obj.no = index + 1;
+        return obj;
+    }).filter(function(el) {
+        return el.no === 1;
+    });
+
+    console.log(newopt);
+
+</script>
+
+</html>

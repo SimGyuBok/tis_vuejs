@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <!-- vue 스크립트 플러그인 임포트   -->
+    
+</head>
+
+<body>
+    <pre>
+
+      출력에 사용한 이미지는
+      '../images/00.png' 부터  '../images/14.png' 이다
+    </pre>
+    <hr>
+    <div id="app">
+
+        <img id="img" ref="movieimage" v-bind:src="movieimageSrc" />
+        <br />
+        <input id="prev"  type="button" ref="btnPrev"  v-on:click="clickPrev"  value="&lt;&lt;" />
+        <input id="next"  type="button" ref="btnNext"  v-on:click="clickNext"  value="&gt;&gt;" />
+        <input id="start" type="button" ref="btnStart" v-on:click="clickStart" value="시작" />
+        <input id="stop"  type="button" ref="btnStop"  v-on:click="clickStop"  value="정지" />
+
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    var msg = {
+        
+    }
+    // edtmc^2w
+    var timerId = "";
+    var app = new Vue({
+        el: "#app",
+        data:{        
+            img_run: ["../images/00.png" , "../images/01.png", "../images/02.png", "../images/03.png", "../images/04.png",
+                "../images/05.png", "../images/06.png", "../images/07.png", "../images/08.png", "../images/09.png", "../images/10.png", "../images/11.png", "../images/12.png", "../images/13.png", "../images/14.png"],
+            //img_swap: ["../images/img_swap_off.png" , "../images/img_swap_on.png"],
+            //img_select: ""
+            movieimageSrc: "../images/00.png",
+            curIndex : 0
+        },
+        template: null,
+        methods: {
+            clickPrev: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                if (this.curIndex++ === 0) {
+                    this.curIndex = 14;
+                }
+                this.movieimageSrc = this.img_run[this.curIndex];
+                //this.num++;
+                //this.flag = false;
+            },
+            clickNext: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                if (this.curIndex++ === 14) {
+                    this.curIndex = 0;
+                }
+                this.movieimageSrc = this.img_run[this.curIndex];
+                //this.num++;
+                //this.flag = false;
+            }, 
+            clickStart: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                //this.num++;
+                //this.flag = false;
+                startAnimation();
+            },
+            clickStop: function(e) {
+                //e.stopPropagation();
+                //e.preventDefault();
+                console.log(e);
+                stopAnimation();
+                //this.num++;
+                //this.flag = false;
+            }
+        }
+       
+    }); 
+   
+    function startAnimation() {
+        timerId = setInterval(function() {
+            if (app.curIndex++ === 14) {
+                app.curIndex = 0;
+            } 
+             app.movieimageSrc = app.img_run[app.curIndex];
+        }, 75); 
+    }
+
+    function stopAnimation() {
+       clearInterval(timerId);
+    }
+</script>
+
+</html>
+
+

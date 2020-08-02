@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+        body > * {
+            text-align: center;
+            vertical-align: middle;
+            line-height: 2em;
+        }
+        p {
+            top: 50%;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header {
+            background-color: orange;
+            margin: 10px 0 ;
+            width: 100%;
+            height: 60px;
+        }
+
+        /* <div id="content-list"> */
+        #content {
+            background-color: white;
+            margin: 0 0 30px 0 ;
+        }
+
+        aside {
+            background-color: gray;
+            margin: 20px ;
+            width: calc(50% - 40px);
+            height: 200px;
+            float: left;
+        }
+        #content-list {
+            background-color: gray;
+            margin: 20px ;
+            width: calc(50% - 40px);
+            float: right;
+            height: 200px;
+        }
+        #content::after {
+            clear: both;
+            display: block;
+            content: '';
+        }
+
+        footer {
+            margin: 10px 0 ;
+            background-color: lightblue;
+            width: 100%;
+            height: 50px;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <component-header>
+            
+        </component-header>
+        <component-content id="content">
+            
+        </component-content>
+        <component-footer>
+           
+        </component-footer>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> /* jQuery library */</script>
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    Vue.component("component-header", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "component-header",
+        props: [],
+        data : function() {
+            return {};
+        },
+        template: `
+            <header>
+                Component-Header
+            </header>
+        `
+    });
+
+    Vue.component("component-aside", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "component-aside",
+        props: [],
+        data : function() {
+            return {};
+        },
+        template: `
+            <aside>
+                Aside
+            </aside>
+        `
+    });
+
+    Vue.component("component-list", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "component-list",
+        props: [],
+        data : function() {
+            return {};
+        },
+        template: `
+            <div id="content-list">
+                List
+            </div>
+        `
+    });
+
+    Vue.component("component-content", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "component-content",
+        props: [],
+        data : function() {
+            return {};
+        },
+        template: `
+            <div id="content">
+                <p>Content</p>
+                <component-aside>
+                    Aside
+                </component-aside>
+                <component-list>
+                    List
+                </component-list>
+            </div>
+        `
+    });
+
+    Vue.component("component-footer", {
+        // 전역컴포넌트 속성: npdtmc^2w
+        // n: name
+        // p: props
+        // d: data
+        // t: template
+        name: "component-footer",
+        props: [],
+        data : function() {
+            return {};
+        },
+        template: `
+            <footer>
+                Component-Footer
+            </footer>
+        `
+    });
+
+    new Vue({
+        el: "#app",
+        data: {
+            
+        },
+        methods: {
+        //    clickAddBox: function(event) {
+        //        Vue.set(this.$data.arr, this.$data.arr.length, this.$data.arr.length+1);
+        //    }
+        }
+    })
+</script>
+
+</html>
