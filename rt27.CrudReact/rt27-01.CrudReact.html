@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mobile Project</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Mobile Project</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
 
-    <!-- CSS import -->
-    <link rel="stylesheet" href="../css/reset.css">
+        <!-- CSS import -->
+        <link rel="stylesheet" href="../css/reset.css" />
+    </head>
+    <body>
+        <div>
+            <a
+                href="#"
+                onClick="window.open('https://vuejstodo-aa185.firebaseapp.com/','Todo앱확인','width=800,height=700,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;"
+                rel="nofollow"
+                >TODO 애플리케이션 구현 확인 링크</a
+            >
+        </div>
 
-</head>
-<body>
-
-    <div>
-        <a href="#" onClick="window.open('https://vuejstodo-aa185.firebaseapp.com/','Todo앱확인','width=800,height=700,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;" rel="nofollow">TODO 애플리케이션 구현 확인 링크</a>
-    </div>
-
-    <xmp>
+        <xmp>
         React CLI 을 사용하여 ToDo 어플리케이션을 만들어 본다.
 
 
         1. 프로젝트 관련 작업
             step 1. 프로젝트 생성
                 $ npm install -g create-react-app
-                $ create-react-app todoreact  # 프로젝트명은 소문자로 만들어야 함.
-                $ cd todoreact
+                $ create-react-app crudreact  # 프로젝트명은 소문자로 만들어야 함.
+                $ cd crudreact
                 $ npm run start
 
 
@@ -111,16 +117,17 @@
                 $ touch ~/src/components/crud/CrudList.js
                 $ touch ~/src/components/crud/CrudListItem.js
                 $ reset.css  ~/public/ 에 복사
-                $ ~/src/index.js 수정
-                    변경 전 : import App from '../src/App.js';
-                    변경 후 : import App from '../src/components/crud/CrudApp.js';
 
                 ~/src/components/crud/CrudApp.js 수정
                     import CrudInput from './CrudInput.js';
                     import CrudList from './CrudList.js';
 
-                ~/src/components/crudCrudList.js 수정
+                ~/src/components/crud/CrudList.js 수정
                     import CrudListItem from './CrudListItem.js';
+
+                $ ~/src/index.js 수정
+                변경 전 : import App from '../src/App.js';
+                변경 후 : import App from '../src/components/crud/CrudApp.js';   
 
                 프로젝트 폴더 구조
                 ├─ dist                     # 빌드 결과물 폴더
@@ -159,6 +166,5 @@
 
 
     </xmp>
-
-</body>
+    </body>
 </html>

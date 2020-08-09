@@ -1,89 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
 
-    <!-- CSS import -->
-    <link rel="stylesheet" href="../css/reset.css">
-    <style>
-        .strong {color:red; font-weight:bold; font-size:1.2em;}
-        label { display: inline-block; width: 80px;}
-        #app > div { margin: 5px 0 ;}
-    </style>
-</head>
-<body>
-    <pre>
-        CRUD 방법을 학습한다.
+        <!-- CSS import -->
+        <link rel="stylesheet" href="../css/reset.css" />
+        <style>
+            .strong {
+                color: red;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            label {
+                display: inline-block;
+                width: 80px;
+            }
+            #app > div {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <pre>
+            CRUD 방법을 학습한다.
 
-        Object Array 에서 최대값 구하는 방법은 구글 검색을 이용한다.
-        ==> 검색조건: javascript object array max
-        방법1. .map() 를 사용하는 방법
-        방법2. .reducer()
-    </pre>
-    <hr>
-    <div id="app">
-        <div>
-            <h1>Creat Read Update Delete</h1>
-            <div><label for="">Name : </label> <input type="text"></div>
-            <div><label for="">Power : </label> <input type="text"></div> <button>Add</button>
-            <hr>
+            Object Array 에서 최대값 구하는 방법은 구글 검색을 이용한다.
+            ==> 검색조건: javascript object array max
+            방법1. .map() 를 사용하는 방법
+            방법2. .reducer()
+        </pre>
+        <hr />
+        <div id="app">
+            <div>
+                <h1>Create Read Update Delete</h1>
+                <div><label for="">Name : </label> <input type="text" /></div>
+                <div><label for="">Power : </label> <input type="text" /></div>
+                <button>Add</button>
+                <hr />
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>POWER</th>
+                        <th>CRUD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td>1</td>
+                        <td>슈퍼맨</td>
+                        <td>100</td>
+                        <td>
+                            <button>Del</button>
+                            <button>Power Up</button>
+                            <button>Power Down</button>
+                            <button>Edit</button>
+                        </td>
+                    </tr>
+                    <tr class="strong">
+                        <td>2</td>
+                        <td>아쿠아맨</td>
+                        <td>300</td>
+                        <td>
+                            <button>Del</button> <button>Power Up</button>
+                            <button>Power Down</button> <button>Edit</button>
+                        </td>
+                    </tr>
+                    <tr class="strong">
+                        <td>3</td>
+                        <td>스파이더맨</td>
+                        <td>500</td>
+                        <td>
+                            <button>Del</button> <button>Power Up</button>
+                            <button>Power Down</button> <button>Edit</button>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <td>4</td>
+                        <td>배트맨</td>
+                        <td>30</td>
+                        <td>
+                            <button>Del</button> <button>Power Up</button>
+                            <button>Power Down</button> <button>Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>POWER</th>
-                    <th>CRUD</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-                    <td>1</td>
-                    <td>슈퍼맨</td>
-                    <td>100</td>
-                    <td>
-                        <button>Del</button>
-                        <button>Power Up</button>
-                        <button>Power Down</button>
-                        <button>Edit</button></td>
-                </tr>
-                <tr class="strong">
-                    <td>2</td>
-                    <td>아쿠아맨</td>
-                    <td>300</td>
-                    <td><button>Del</button> <button>Power Up</button> <button>Power Down</button>
-                        <button>Edit</button></td>
-                </tr>
-                <tr class="strong">
-                    <td>3</td>
-                    <td>스파이더맨</td>
-                    <td>500</td>
-                    <td><button>Del</button> <button>Power Up</button> <button>Power Down</button>
-                        <button>Edit</button></td>
-                </tr>
-                <tr class="">
-                    <td>4</td>
-                    <td>배트맨</td>
-                    <td>30</td>
-                    <td><button>Del</button> <button>Power Up</button> <button>Power Down</button>
-                        <button>Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-</body>
+    </body>
 </html>
 
 <!-- react 플러그인 include   -->
 <!-- 주의: 사이트를 배포할 때는 "development.js"를 "production.min.js"로 대체하세요. -->
 
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.development.js"
+>
+    /* import { React} from 'react'; */
+</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.development.js"
+>
+    /* import { ReactDOM } from 'react-dom'; */
+</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"
+>
+    /* JSX를 자바스크립트로 변환 */
+</script>
 
-
+<script type="text/babel">
+    class CrudApp extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.insert = this.insert.bind(this);
+            this.doUp = this.doUp.bind(this);
+            this.doDown = this.doDown.bind(this);
+            this.doDel = this.doDel.bind(this);
+            this.doEdit = this.doEdit.bind(this);
+        }
+
+        state = {
+            list: [
+                { id: 1, name: "슈퍼맨", power: 100 },
+                { id: 2, name: "아쿠아맨", power: 300 },
+                { id: 3, name: "스파이더맨", power: 500 },
+                { id: 4, name: "배트맨", power: 30 },
+            ],
+        };
+
+        insert(man) {
+            // CrudInput 이벤트 콜백
+            var obj = this.state.list.reduce(function (prev, next) {
+                return prev.id > next.id ? prev : next; // 최대값 id가 있는 객체 구하기
+            });
+            //debugger;
+            if (obj) {
+                //user.id = this.$data.list.length+1;
+                man.id = obj.id + 1;
+            } else {
+                man.id = 1;
+            }
+
+            const listCopy = [...this.state.list, man];
+            this.setState({
+                list: listCopy,
+            });
+        }
+
+        doUp(id) {
+            var mans = this.state.list.filter((el, index) => {
+                if (el.id == id) {
+                    el.power = Number(el.power) + 100;
+                }
+                return el;
+            });
+
+            this.setState({
+                list: mans,
+            });
+        }
+
+        doDown(id) {
+            var mans = this.state.list.filter((el, index) => {
+                if (el.id == id) {
+                    el.power = Number(el.power) - 100;
+                }
+                return el;
+            });
+
+            this.setState({
+                list: mans,
+            });
+        }
+
+        doEdit(man) {
+            let listCopy = this.state.list.map((el, index) => {
+                if (el.id === man.id) {
+                    return man;
+                } else {
+                    return el;
+                }
+            });
+            this.setState({
+                list: listCopy,
+            });
+        }
+
+        doDel(id) {
+            let r = window.confirm("삭제 하시겠습니까?");
+            if (r) {
+                let listCopy = this.state.list.filter((el, index) => {
+                    return el.id !== id ? true : false;
+                });
+
+                this.setState({
+                    list: listCopy,
+                });
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    <CrudInput insert={this.insert}></CrudInput>
+                    <hr />
+                    <CrudList
+                        {...this.state}
+                        doUp={this.doUp}
+                        doDown={this.doDown}
+                        doEdit={this.doEdit}
+                        doDel={this.doDel}
+                    ></CrudList>
+                </div>
+            );
+        }
+    }
+
+    class CrudList extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {};
+        }
+
+        render() {
+            const rows = this.props.list;
+            /*
+                {this.props.items.map(function (value, key) {
+                    return <li key={key}>{value}</li>;
+                })}
+            */
+            const trs = rows.map((man, index) => {
+                return (
+                    <CrudListItem
+                        man={man}
+                        key={man.id}
+                        {...this.props}
+                    ></CrudListItem>
+                );
+            });
+            return (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>POWER</th>
+                            <th>CRUD</th>
+                        </tr>
+                    </thead>
+                    <tbody>{trs}</tbody>
+                </table>
+            );
+        }
+    }
+
+    class CrudListItem extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.doUp = this.doUp.bind(this);
+            this.doDown = this.doDown.bind(this);
+            this.doDel = this.doDel.bind(this);
+            this.doEdit = this.doEdit.bind(this);
+            this.doSave = this.doSave.bind(this);
+
+            // ref 추가
+            this.refUserName = React.createRef();
+            this.refUserPower = React.createRef();
+        }
+
+        state = {
+            isEditMode: false,
+        };
+
+        doUp(id) {
+            this.props.doUp(this.props.man.id);
+        }
+        doDown(id) {
+            this.props.doDown(this.props.man.id);
+        }
+        doDel(id) {
+            this.props.doDel(this.props.man.id);
+        }
+        doEdit(man) {
+            this.setState((prevState, prop) => {
+                return {
+                    isEditMode: !prevState.isEditMode,
+                };
+            });
+        }
+        doSave() {
+            /*
+            this.setState({
+                isEditMode = false;  
+            })
+            */
+            this.setState((prevState, prop) => {
+                return {
+                    isEditMode: !prevState.isEditMode,
+                };
+            });
+
+            const id = this.props.man.id;
+            const name = this.refUserName.current.value;
+            const power = this.refUserPower.current.value;
+            const newMan = {
+                id: id,
+                name: name,
+                power: power,
+            };
+
+            this.props.doEdit(newMan);
+        }
+
+        render() {
+            const { id, name, power } = this.props.man;
+            const formView = (
+                <tr className="" key={id}>
+                    <td>{id}</td>
+                    <td>{name}</td>
+                    <td>{power}</td>
+                    <td>
+                        <button onClick={this.doDel}>Del</button>
+                        <button onClick={this.doUp}>Power Up</button>
+                        <button onClick={this.doDown}>Power Down</button>
+                        <button onClick={this.doEdit}>Edit</button>
+                    </td>
+                </tr>
+            );
+            const formEdit = (
+                <tr className="" key={id}>
+                    <td>{id}</td>
+                    <td>
+                        <input
+                            type="text"
+                            name="name"
+                            ref={this.refUserName}
+                            defaultValue={name}
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="text"
+                            name="power"
+                            ref={this.refUserPower}
+                            defaultValue={power}
+                        />
+                    </td>
+                    <td>
+                        <button onClick={this.doUp}>Power Up</button>
+                        <button onClick={this.doDown}>Power Down</button>
+                        <button onClick={this.doSave}>Save</button>
+                    </td>
+                </tr>
+            );
+
+            if (this.state.isEditMode) {
+                return formEdit;
+            } else {
+                return formView;
+            }
+        }
+    }
+
+    class CrudInput extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.insert = this.insert.bind(this);
+
+            // ref 생성
+            this.refUserName = React.createRef();
+            this.refUserPower = React.createRef();
+        }
+
+        state = { name: "", power: 0 };
+
+        insert(e) {
+            // 부모(CrudApp)에게 값을 넘긴다.
+            const man = {
+                name: this.refUserName.current.value,
+                power: Number(this.refUserPower.current.value),
+            };
+
+            this.props.insert(man);
+        }
+
+        render() {
+            const { name, power } = this.state;
+            return (
+                <div>
+                    <h1>Creat Read Update Delete</h1>
+                    <div>
+                        <label htmlFor="">Name : </label>{" "}
+                        <input
+                            type="text"
+                            name="name"
+                            ref={this.refUserName}
+                            defaultValue={name}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="">Power : </label>{" "}
+                        <input
+                            type="text"
+                            name="power"
+                            ref={this.refUserPower}
+                            defaultValue={power}
+                        />
+                    </div>
+                    <button onClick={this.insert}>Add</button>
+                    <hr />
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(<CrudApp></CrudApp>, document.getElementById("app"));
+</script>
